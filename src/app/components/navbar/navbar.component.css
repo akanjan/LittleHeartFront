@@ -1,0 +1,17 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+.navbar_color{
+    height: 47px;
+    background-color: #FF0066;
+    color: #FFFFFF;
+}
+
+.example-button-container {
+  display: flex;
+  justify-content: center;
+  width: 35px;
+  
+}
+

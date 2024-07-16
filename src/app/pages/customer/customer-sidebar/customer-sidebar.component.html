@@ -1,0 +1,29 @@
+<mat-card>
+    <mat-action-list>
+        <div mat-subheader>Menu</div>
+        <button class="button" mat-list-item  routerLink="../">
+            <mat-icon mat-list-icon>home</mat-icon>Home
+        </button>
+        <button class="button" mat-list-item routerLink="/customer-dashboard/orders">
+            <mat-icon mat-list-icon>category</mat-icon>Orders
+        </button>
+        <button class="button" mat-list-item routerLink="/customer-dashboard/wishlist">
+            <mat-icon mat-list-icon>loyalty</mat-icon>Wishlist
+        </button>
+        <button class="button" mat-list-item routerLink="/customer-dashboard/editprofile">
+            <mat-icon mat-list-icon>add_task</mat-icon>Edit Profile
+        </button>
+        <button class="button" mat-list-item routerLink="/customer-dashboard/card&wallet">
+            <mat-icon mat-list-icon>wallet</mat-icon>Card & Wallet
+        </button>
+        <button class="button" mat-list-item routerLink="/customer-dashboard/address">
+            <mat-icon mat-list-icon>business</mat-icon>Address
+        </button>
+        <!-- <button class="button" mat-list-item routerLink="/seller-dashboard/delete">
+            <mat-icon mat-list-icon>delete</mat-icon>Delete Product
+        </button> -->
+        <button class="btn-warning" mat-list-item (click)="logout()">
+            <mat-icon mat-list-icon>logout</mat-icon>Logout
+          </button>
+    </mat-action-list>
+</mat-card>    

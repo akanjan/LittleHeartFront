@@ -1,0 +1,39 @@
+<dir class="bootstrap-wrapper">
+    <div class="container">
+      <div class="row" mt20>
+        <div class="col-md-6 offset-md-3">
+          <mat-card>
+            <div class="container text-center">
+              <img class="img" src="../../../assets/logo.png" alt="" />
+            </div>
+  
+            <h1 class="text-center">Verify Your Email !!</h1>
+  
+            <!-- {{ loginData | json }} -->
+            <!-- {{ user | json }} -->
+            <form [formGroup]="Form" (ngSubmit)="onSubmit()">
+              <!-- Username Fild -->
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Enter Your Email</mat-label>
+                <input
+                  formControlName="email"
+                  type="email"
+                  name="email"
+                  required
+                  matInput
+                  placeholder="Enter here"
+                />
+              </mat-form-field>
+              <small *ngIf="!Form.get('email').valid && Form.get('email').touched" class="form-text text-danger w-100">Please Enter Email</small>
+              <div class="container text-center">
+                <button mat-raised-button color="warn" type="submit">
+                  Sent OTP
+                </button>
+              </div>
+            </form>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </dir>
+  

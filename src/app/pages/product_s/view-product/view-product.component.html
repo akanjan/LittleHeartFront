@@ -1,0 +1,70 @@
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="container text-center">
+                    <img
+                      src="{{ imageUrl }}{{ prodPhoto }}"
+                      alt="Trendy Pants and Shoes"
+                      class="img"
+                    />
+                  </div>
+            </div>
+            <div class="col-md-6">
+                <div class="container" style="margin-top: 80px;">
+                    <div class="card-body">
+                        <h1 class="card-title">{{ prodTitle }}</h1>
+    
+                        <div class="card-container mt10">
+                          <h2>
+                            Product Id : <b>{{ prodId }}</b>
+                          </h2>
+                          <div class="fill"></div>
+                          <div class="rating">
+                            <mat-icon class="active">star</mat-icon>
+                            <mat-icon class="active">star</mat-icon>
+                            <mat-icon class="active">star</mat-icon>
+                            <mat-icon>star</mat-icon>
+                            <mat-icon>star</mat-icon>
+                          </div>
+                        </div>
+    
+                        <h3 class="card-text">{{ prodDesc }}</h3>
+                        <div class="card-container">
+                          <div>
+                            <h2>
+                                Price : &#8377;{{ prodPrice }}
+                            </h2>
+                          </div>
+                          <div class="fill"></div>
+                          <div *ngIf="prodActive" class="bedge">
+                            <span class="badge rounded-pill bg-info text-dark"
+                              >A C T I V E</span
+                            >
+                          </div>
+                          <div *ngIf="!prodActive">
+                            <span class="badge rounded-pill bg-warning text-dark"
+                              >D E A C T I V E</span
+                            >
+                          </div>
+                        </div>
+                        <div class="card-container mt10">
+                          <div><h2>Avl Quentity : {{ prodQuantity }}</h2></div>
+                          <div class="fill"></div>
+                          <div><h2>Discount : {{ prodDiscount }} %</h2></div>
+                        </div>
+                        <div class="text-center mt20">
+                          <button
+                            type="button"
+                            class="btn btn-warning btn-sm ml10"
+                            routerLink="../../"
+                          >
+                            Close
+                          </button>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

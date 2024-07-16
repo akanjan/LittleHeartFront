@@ -1,0 +1,101 @@
+<div class="bootstrap-wrapper">
+  <div class="container admin">
+    <div class="row mt30">
+      <!-- User Details -->
+      <div class="col-md-4 mt20">
+        <mat-card class="card text-center" (click)="userClick()">
+          <div class="container">
+            <img
+              style="max-width: 100px"
+              class="img-fluid rounded-circle"
+              src="../../../../assets/man.png"
+              alt=""
+            />
+          </div>
+          <h1>User</h1>
+          <h2>Total Users {{totalUsers}}</h2>
+          <!-- <mat-card-actions>
+            <button mat-stroked-button class="success">GET</button>
+            <button mat-stroked-button class="add">ADD ROLE</button>
+            <button mat-stroked-button color="accent">UPDATE</button>
+          </mat-card-actions> -->
+        </mat-card>
+      </div>
+
+      <!-- Category Details -->
+      <div class="col-md-4 mt20">
+        <mat-card (click)="categoryClick()" class="card text-center">
+          <div class="container">
+            <img
+              style="max-width: 100px"
+              class="img-fluid rounded-circle"
+              src="../../../../assets/options.png"
+              alt=""
+            />
+          </div>
+          <h1>Category</h1>
+          <h2>Total Category {{totalCategory}}</h2>
+          <!-- <mat-card-actions>
+            <button mat-stroked-button class="success">GET</button>
+            <button mat-stroked-button class="add">ADD</button>
+            <button mat-stroked-button color="accent">UPDATE</button>
+          </mat-card-actions> -->
+        </mat-card>
+      </div>
+
+      <!-- Product Details -->
+      <div class="col-md-4 mt20">
+        <mat-card (click)="productClick()" class="card text-center">
+          <div class="container">
+            <img
+              style="max-width: 100px"
+              class="img-fluid rounded-circle"
+              src="../../../../assets/cubes.png"
+              alt=""
+            />
+          </div>
+          <h1>Products</h1>
+          <h2>Total Products 20052 </h2>
+          <!-- <mat-card-actions>
+            <button mat-stroked-button class="success">GET</button>
+            <button mat-stroked-button class="add">ADD</button>
+            <button mat-stroked-button color="accent">UPDATE</button>
+          </mat-card-actions> -->
+        </mat-card>
+      </div>
+    </div>
+    <div class="row mt10">
+      <!-- Add Category -->
+      <div class="col-md-6 mt20">
+        <mat-card (click)="openDialog()" class="card text-center">
+          <div class="container">
+            <img
+              style="max-width: 100px"
+              class="img-fluid rounded-circle"
+              src="../../../../assets/add.png"
+              alt=""
+            />
+          </div>
+          <p class="mt-2">Click here to add new category</p>
+          <h1>Add Category</h1>
+        </mat-card>
+      </div>
+
+      <!-- Add Products -->
+      <div class="col-md-6 mt20">
+        <mat-card (click)="openDialog2()" class="card text-center">
+          <div class="container">
+            <img
+              style="max-width: 100px"
+              class="img-fluid rounded-circle"
+              src="../../../../assets/menu.png"
+              alt=""
+            />
+          </div>
+          <p>Click here to add new products</p>
+          <h1>Add Products</h1>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,72 @@
+<dir class="bootstrap-wrapper">
+  <div class="container">
+    <div class="row" mt20>
+      <div class="col-md-6 offset-md-3">
+        <mat-card>
+          <div class="container text-center">
+            <img class="img" src="../../../assets/logo.png" alt="" />
+          </div>
+
+          <h1 class="text-center">Login Here !!</h1>
+
+          <!-- {{ loginData | json }} -->
+          <!-- {{ user | json }} -->
+          <form (ngSubmit)="formSubmit()">
+            <!-- Username Fild -->
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>User Name</mat-label>
+              <input
+                [(ngModel)]="loginData.username"
+                name="username"
+                required
+                matInput
+                placeholder="Enter here"
+              />
+              <mat-hint>Valid Username</mat-hint>
+            </mat-form-field>
+
+            <!-- Password Fild -->
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>User Password</mat-label>
+              <input
+                [(ngModel)]="loginData.password"
+                name="password"
+                required
+                type="password"
+                matInput
+                placeholder="Enter here"
+              />
+            </mat-form-field>
+
+
+            <div class="container text-center">
+              <button mat-raised-button color="primary" type="submit">
+                Login
+              </button>
+              <button
+                type="reset"
+                class="ml10"
+                mat-raised-button
+                color="accent"
+              >
+                Reset
+              </button>
+            </div>
+            <div class="row mt-4">
+              <div class="col-md-6">
+                <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a routerLink="/signup"
+                  class="link-danger">Register</a></p>
+              </div>
+              <div class="col-md-6">
+                <div class="col mt-2" style="text-align: right;">
+                  <!-- Simple link -->
+                  <a routerLink="/verify-email">Forgot password?</a>
+                </div>
+              </div>
+            </div>
+          </form>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</dir>

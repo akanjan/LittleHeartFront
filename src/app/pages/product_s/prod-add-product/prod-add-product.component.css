@@ -1,0 +1,32 @@
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+.example-full-width {
+    width: 100%;
+  }
+
+.bg-app{
+    background-color: #FBFCFC;
+ }
+
+.desc{
+   height: 80px;
+ }
+
+ .success{
+    color: #2ECC71;
+ }
+ .success:hover{
+   background-color: #D5F5E3;
+ }
+
+ .warning{
+    color: #FBC02D;
+ }
+
+ .warning:hover{
+    background-color: #FCF3CF;
+ }

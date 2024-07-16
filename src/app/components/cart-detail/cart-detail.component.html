@@ -1,0 +1,44 @@
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+  crossorigin="anonymous"
+/>
+
+<div>
+  <h2 [hidden]="cartValue==0" class="text-center">Your Selected Items</h2>
+  <h3 mat-dialog-title [hidden]="cartValue==0">Your Cart Details</h3>
+  <h2 mat-dialog-title  *ngIf="cartValue==0" class="text-center">Your Cart Is Empty</h2>
+</div>
+<mat-dialog-content class="mat-typography" [hidden]="cartValue==0"> 
+    <div class="cart-body">
+      <table class="table table-hover table-bordered">
+        <thead class="">
+          <tr>
+            <th>Item Name</th>
+            <th>Price</th>
+            <th>Quentity</th>
+            <th>Total Price</th>
+            <th class="text-center">Action</th>
+          </tr>
+          <tr *ngFor="let c of cart" >
+            <td>{{c.productName}}</td>
+            <td class="text-center">{{c.productPrice}}.00</td>
+            <td class="text-center">{{c.productQuentity}}</td>
+            <td class="text-center">{{c.productPrice * c.productQuentity}}.00</td>
+            <td>
+              <button type="button" class="btn btn-warning btn-sm" (click)="removeFromCart(c.productId)" >Remove</button>
+            </td>
+          </tr>
+        </thead>  
+      </table>
+      <tr>
+        <td>
+          <h3>Gross Amount : <b>{{grantTotal}}.00</b></h3>
+          <h3>Price with GST : <b>{{gstPrice | number:'1.0-2'}}</b></h3>
+        </td>
+      </tr>
+      
+    </div>
+</mat-dialog-content>
+

@@ -1,0 +1,26 @@
+<mat-card>
+    <mat-action-list>
+        <div mat-subheader>Menu</div>
+        <button class="button" mat-list-item  routerLink="/admin">
+            <mat-icon mat-list-icon>home</mat-icon>Home
+        </button>
+        <button class="button" mat-list-item routerLink="/admin/products/all">
+            <mat-icon mat-list-icon>category</mat-icon>All Products
+        </button>
+        <button class="button" mat-list-item routerLink="/admin/products/add">
+            <mat-icon mat-list-icon>add_task</mat-icon>Add Product
+        </button>
+        <button class="button" mat-list-item routerLink="/admin/products/upload">
+            <mat-icon mat-list-icon>cloud_upload</mat-icon>Upload Image
+        </button>
+        <button class="button" mat-list-item routerLink="/admin/products/update">
+            <mat-icon mat-list-icon>auto_mode</mat-icon>Update Product
+        </button>
+        <button class="button" mat-list-item routerLink="/admin/products/delete">
+            <mat-icon mat-list-icon>delete</mat-icon>Delete Product
+        </button>
+        <button class="btn-warning" mat-list-item (click)="logout()" >
+            <mat-icon mat-list-icon>logout</mat-icon>Logout
+          </button>
+    </mat-action-list>
+</mat-card> 

@@ -1,0 +1,28 @@
+.bg-app{
+    background-color: #E3F2FD;
+    
+}
+
+.card-container{ 
+  display: flex;
+}
+
+.fill {
+    flex: 1;
+  }
+
+.warning{
+    background-color: #00CC99;
+  }
+.info{
+    background-color: #4DD0E1;
+}
+
+.mat-icon{
+    font-size: 16px;
+}
+.active{
+    color: #FBC02D;
+}
+ 
+    

@@ -1,0 +1,11 @@
+.button{
+    margin-top: 10px;
+    background-color: #D1F2EB;
+    border-radius: 15px;
+}
+
+.btn-warning{
+    margin-top: 10px;
+    background-color: #FFEE58;
+    border-radius: 15px;
+}

@@ -1,0 +1,38 @@
+<button mat-mini-fab mat-dialog-close class="close">
+  <mat-icon>close</mat-icon>
+</button>
+<h2 mat-dialog-title class="text-center">Add Category</h2>
+<mat-dialog-content>
+  <form (ngSubmit)="formSubmit()">
+    <!-- Category Title -->
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Category Title</mat-label>
+      <input
+        required
+        [(ngModel)]="category.catTitle"
+        name="category-title"
+        matInput
+        placeholder="Enter Category Title"
+      />
+    </mat-form-field>
+
+    <!-- Category Description -->
+    <p>
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Category Description</mat-label>
+        <textarea
+          rows="7"
+          required
+          [(ngModel)]="category.catDesc"
+          name="category-desc"
+          matInput
+          placeholder="Enter Category Description"
+        ></textarea>
+      </mat-form-field>
+    </p>
+    <div class="container text-center">
+      <button mat-stroked-button class="success mr10">ADD</button>
+      <button mat-stroked-button type="reset" color="accent">Clear</button>
+    </div>
+  </form>
+</mat-dialog-content>

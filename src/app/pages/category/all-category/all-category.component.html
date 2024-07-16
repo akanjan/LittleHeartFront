@@ -1,0 +1,28 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let c of categories">
+      <mat-card class="bg-app mat-elevation-z0">
+        <div class="card-container">
+          <mat-card-title>{{ c.catTitle }} </mat-card-title>
+          <div class="fill"></div>
+          <h4>Category Id : {{ c.catId }}</h4>
+        </div>
+        <mat-card-subtitle class="mt10">{{ c.catDesc | slice:0:48 }}....</mat-card-subtitle>
+
+        <div class="rating">
+          <mat-icon class="active">star</mat-icon>
+          <mat-icon class="active">star</mat-icon>
+          <mat-icon class="active">star</mat-icon>
+          <mat-icon>star</mat-icon>
+          <mat-icon>star</mat-icon>
+        </div>
+        <mat-card-actions>
+          <button type="button" class="btn btn-outline-primary btn-sm" (click)="openDialog(c.catId)">VIEW</button>
+          <button type="button" class="btn btn-outline-info btn-sm ml10">LIKE</button>
+          <button type="button" class="btn btn-outline-warning btn-sm ml10">SHARE</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

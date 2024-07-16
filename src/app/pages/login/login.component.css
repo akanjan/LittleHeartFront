@@ -1,0 +1,19 @@
+.img {
+    position: relative;
+  
+    width: 100px;
+    height: 100px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  .bootstrap-wrapper {
+    padding-left: 0px;
+  }
+  

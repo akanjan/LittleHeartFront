@@ -1,0 +1,89 @@
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+  crossorigin="anonymous"
+/>
+<button mat-mini-fab mat-dialog-close class="close">
+  <mat-icon>close</mat-icon>
+</button>
+<h2 mat-dialog-title class="text-center">Update User</h2>
+<!-- <mat-dialog-content>Hi {{data}}</mat-dialog-content> -->
+<mat-dialog-content>
+  <form class="example-form" *ngIf="user" (submit)="updateUser()">
+    <!-- Name -->
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Name</mat-label>
+      <input
+        required
+        [(ngModel)]="user.name"
+        name="name"
+        matInput
+        placeholder="Enter user name"
+      />
+    </mat-form-field>
+
+    <!-- Email -->
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Email</mat-label>
+      <input
+        required
+        [(ngModel)]="user.email"
+        name="email"
+        matInput
+        placeholder="Enter user email"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Password</mat-label>
+      <input
+        required
+        [(ngModel)]="user.password"
+        name="password"
+        matInput
+        placeholder="Enter user password"
+      />
+    </mat-form-field>
+
+    <!-- Phone  & Address -->
+    <p>
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Phone</mat-label>
+        <input
+          matInput
+          required
+          [(ngModel)]="user.phoneNo"
+          name="phoneNo"
+          matInput
+          placeholder="Enter phone no"
+        />
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Address</mat-label>
+        <input
+          matInput
+          required
+          [(ngModel)]="user.address"
+          name="address"
+          matInput
+          placeholder="Enter User Address"
+        />
+      </mat-form-field>
+    </p>
+
+    <!-- File Upload -->
+    <div class="mb-3">
+      <label for="formFile" class="form-label">Select User Image</label>
+      <input class="form-control" type="file" id="formFile" />
+    </div>
+
+    <!-- Add Button -->
+    <div class="container text-center mt20">
+      <button mat-stroked-button class="btn btn-warning mr10">Update</button>
+      <!-- <button mat-stroked-button type="reset" class="btn btn-danger">Clear</button> -->
+    </div>
+  </form>
+</mat-dialog-content>

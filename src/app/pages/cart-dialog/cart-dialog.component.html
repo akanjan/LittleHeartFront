@@ -1,0 +1,18 @@
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+  crossorigin="anonymous"
+/>
+
+<!-- <h3 mat-dialog-title>Your Cart Details</h3>
+<h2 mat-dialog-title *ngIf="cartValue==0">Your Cart Is Empty</h2> -->
+
+<app-cart-detail></app-cart-detail>
+
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button *ngIf="cartValue!=0" routerLink="checkout" mat-button [mat-dialog-close]="true" class="buy-btn" cdkFocusInitial (click)="loginCheck()" >Buy</button>
+</mat-dialog-actions>
+

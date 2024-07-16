@@ -1,0 +1,88 @@
+<div class="bootstrap-wrapper">
+  <div
+    class="search-results"
+    infiniteScroll
+    [infiniteScrollDistance]="2"
+    [infiniteScrollThrottle]="50"
+    (scrolled)="onScroll()"
+  >
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6" *ngFor="let p of products">
+          <a routerLink="view/{{p.prodId}}"> 
+          <div class="container">
+            <div class="card h-100 mb10">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <div class="container text-center">
+                    <img
+                      src="{{ imageUrl }}{{ p.prodPhoto }}"
+                      alt="Trendy Pants and Shoes"
+                      class="img"
+                    />
+                  </div>
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h1 class="card-title">{{ p.prodTitle | slice: 0:19 }}</h1>
+
+                    <div class="card-container mt10">
+                      <h3>
+                        PRODUCT ID : <b>{{ p.prodId }}</b>
+                      </h3>
+                      <div class="fill"></div>
+                      <div class="rating">
+                        <mat-icon class="active">star</mat-icon>
+                        <mat-icon class="active">star</mat-icon>
+                        <mat-icon class="active">star</mat-icon>
+                        <mat-icon>star</mat-icon>
+                        <mat-icon>star</mat-icon>
+                      </div>
+                    </div>
+
+                    <!-- <p class="card-text">{{ p.prodDesc | slice: 0:48 }}....</p> -->
+                    <div class="card-container">
+                      <div>Price : &#8377;{{ p.prodPrice }}</div>
+                      <div class="fill"></div>
+                      <div *ngIf="p.prodActive">
+                        <span class="badge rounded-pill bg-info text-dark"
+                          >A C T I V E</span
+                        >
+                      </div>
+                      <div *ngIf="!p.prodActive">
+                        <span class="badge rounded-pill bg-warning text-dark"
+                          >D E A C T I V E</span
+                        >
+                      </div>
+                    </div>
+                    <div class="card-container mt10">
+                      <div>Avl Quentity : {{ p.prodQuantity }}</div>
+                      <div class="fill"></div>
+                      <div>Discount : {{ p.prodDiscount }} %</div>
+                    </div>
+                    <!-- <div class="text-center mt20">
+                      <button type="button" class="btn btn-outline-info btn-sm">
+                        View
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-outline-warning btn-sm ml10"
+                      >
+                        Warning
+                      </button>
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+  <mat-spinner *ngIf="!lastPage" diameter="50" strokeWidth="5"></mat-spinner>
+</div>

@@ -1,0 +1,262 @@
+<div class="container mt20">
+  <!-- <app-product-navbar></app-product-navbar> -->
+  <div class="container" text-center>
+    <mat-chip-list aria-label="Dog selection">
+      <mat-chip color="accent" selected (click)="getAllProductByCatId(0)">
+        All Products
+      </mat-chip>
+      <mat-chip
+        color="accent"
+        selected
+        *ngFor="let c of categories"
+        [value]="c.catId"
+        (click)="getProductById(c.catId)"
+      >
+        {{ c.catTitle }}
+      </mat-chip>
+    </mat-chip-list>
+  </div>
+</div>
+
+<!-- <h1>Total Products is {{ totalElements }}</h1> -->
+<div
+  class="search-results"
+  infiniteScroll
+  [infiniteScrollDistance]="2"
+  [infiniteScrollThrottle]="50"
+  (scrolled)="onScroll()"
+>
+  <div class="container-fluid mt20">
+    <div class="row">
+      <div class="col-md-2">
+        <!-- SideBar Works Start-->
+        <mat-card class="hero">
+          <h3>Filters</h3>
+          <mat-form-field class="select" appearance="outline">
+            <mat-label>All Category</mat-label>
+            <mat-select name="category">
+              <mat-option
+                *ngFor="let c of categories"
+                [value]="c.catId"
+                (click)="getProductById(c.catId)"
+              >
+                {{ c.catTitle }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <label for="">PRICE</label>
+          <mat-slider
+            thumbLabel
+            [displayWith]="formatLabel"
+            tickInterval="1000"
+            step="1000"
+            min="0"
+            max="100000"
+            aria-label="units"
+          ></mat-slider>
+
+          <!-- BRAND SELECT Start -->
+          <mat-form-field class="select" appearance="fill">
+            <mat-label>SELECT BRAND</mat-label>
+            <mat-select [formControl]="toppings" multiple>
+              <mat-select-trigger>
+                {{toppings.value?.[0] || ''}}
+                <span
+                  *ngIf="(toppings.value?.length || 0) > 1"
+                  class="example-additional-selection"
+                >
+                  (+{{ (toppings.value?.length || 0) - 1 }}
+                  {{ toppings.value?.length === 2 ? "other" : "others" }})
+                </span>
+              </mat-select-trigger>
+              <mat-option *ngFor="let brand of brandList" [value]="brand">{{
+                brand
+              }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <!-- BRAND SELECT End -->
+
+          <!-- Customer Rating Start -->
+          <mat-form-field class="select" appearance="fill">
+            <mat-label>CUSTOMER RATINGS</mat-label>
+            <mat-select [formControl]="toppings" multiple>
+              <mat-select-trigger>
+                {{toppings.value?.[0] || ''}}
+                <span
+                  *ngIf="(toppings.value?.length || 0) > 1"
+                  class="example-additional-selection"
+                >
+                  (+{{ (toppings.value?.length || 0) - 1 }}
+                  {{ toppings.value?.length === 2 ? "other" : "others" }})
+                </span>
+              </mat-select-trigger>
+              <mat-option
+                *ngFor="let topping of toppingList"
+                [value]="topping"
+                >{{ topping }}</mat-option
+              >
+            </mat-select>
+          </mat-form-field>
+          <!-- Customer Rating End -->
+
+          <!-- Customer Rating Start -->
+          <mat-form-field class="select" appearance="fill">
+            <mat-label>DISCOUNT</mat-label>
+            <mat-select [formControl]="toppings" multiple>
+              <mat-select-trigger>
+                {{toppings.value?.[0] || ''}}
+                <span
+                  *ngIf="(toppings.value?.length || 0) > 1"
+                  class="example-additional-selection"
+                >
+                  (+{{ (toppings.value?.length || 0) - 1 }}
+                  {{ toppings.value?.length === 2 ? "other" : "others" }})
+                </span>
+              </mat-select-trigger>
+              <mat-option
+                *ngFor="let topping of discountList"
+                [value]="topping"
+                >{{ topping }}</mat-option
+              >
+            </mat-select>
+          </mat-form-field>
+          <!-- Customer Rating End -->
+
+          <!-- Availabel Start -->
+          <mat-form-field class="select" appearance="fill">
+            <mat-label>AVAILABILITY</mat-label>
+            <mat-select [formControl]="toppings" multiple>
+              <mat-select-trigger>
+                {{toppings.value?.[0] || ''}}
+                <span
+                  *ngIf="(toppings.value?.length || 0) > 1"
+                  class="example-additional-selection"
+                >
+                  (+{{ (toppings.value?.length || 0) - 1 }}
+                  {{ toppings.value?.length === 2 ? "other" : "others" }})
+                </span>
+              </mat-select-trigger>
+              <mat-option
+                *ngFor="let topping of availabilList"
+                [value]="topping"
+                >{{ topping }}</mat-option
+              >
+            </mat-select>
+          </mat-form-field>
+          <!-- Availabel End -->
+
+          <!-- GST Invoice Start -->
+          <mat-form-field class="select" appearance="fill">
+            <mat-label>AVAILABILITY</mat-label>
+            <mat-select [formControl]="toppings" multiple>
+              <mat-select-trigger>
+                {{toppings.value?.[0] || ''}}
+                <span
+                  *ngIf="(toppings.value?.length || 0) > 1"
+                  class="example-additional-selection"
+                >
+                  (+{{ (toppings.value?.length || 0) - 1 }}
+                  {{ toppings.value?.length === 2 ? "other" : "others" }})
+                </span>
+              </mat-select-trigger>
+              <mat-option *ngFor="let topping of gstList" [value]="topping">{{
+                topping
+              }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <!-- GST Invoice End -->
+        </mat-card>
+        <!-- SideBar Works End-->
+      </div>
+      <div class="col-md-10">
+        <mat-card class="hero mat-elevation-z0">
+          <div class="row">
+            <div class="col-md-6" *ngFor="let p of products">
+              <a routerLink="proddet/{{ p.prodId }}">
+                <div class="container">
+                  <div class="card h-100 mb10">
+                    <div class="row g-0">
+                      <div class="col-md-4">
+                        <div class="container text-center">
+                          <img
+                            src="{{ imageUrl }}{{ p.prodPhoto }}"
+                            alt="Product Image"
+                            class="img"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h1 class="card-title">
+                            {{ p.prodTitle | slice : 0 : 19 }}
+                          </h1>
+
+                          <!-- Price & Discount -->
+                          <div class="card-container">
+                            <h3>Price : &#8377;{{ p.prodPrice }}</h3>
+                            <div class="fill"></div>
+                            <h3>Discount : {{ p.prodDiscount }} %</h3>
+                          </div>
+
+                          <!-- Active & Star -->
+                          <div class="card-container mt10">
+                            <div *ngIf="p.prodActive">
+                              <span class="badge rounded-pill bg-info text-dark"
+                                >A C T I V E</span
+                              >
+                            </div>
+                            <div *ngIf="!p.prodActive">
+                              <span
+                                class="badge rounded-pill bg-warning text-dark"
+                                >D E A C T I V E</span
+                              >
+                            </div>
+                            <div class="fill"></div>
+                            <div class="rating">
+                              <mat-icon class="active">star</mat-icon>
+                              <mat-icon class="active">star</mat-icon>
+                              <mat-icon class="active">star</mat-icon>
+                              <mat-icon>star</mat-icon>
+                              <mat-icon>star</mat-icon>
+                            </div>
+                          </div>
+
+                          <!-- <p class="card-text">{{ p.prodDesc | slice: 0:48 }}....</p> -->
+
+                          <!-- <div class="text-center mt20">
+                            <button type="button" class="btn btn-outline-info btn-sm">
+                              View
+                            </button>
+                            <button
+                              type="button"
+                              class="btn btn-outline-warning btn-sm ml10"
+                            >
+                              Warning
+                            </button>
+                          </div> -->
+                          <!-- <div class="text-center mt20">
+                            <button type="button" class="btn btn-outline-warning btn-sm" (click)="addToCart(p.prodId,p.prodTitle,p.prodPrice)">Add to cart</button>
+                            <button type="button" class="btn btn-outline-info ml20 btn-sm">&#8377; {{ p.prodPrice }} 
+                              <span class="text-secondary discount">
+                              {{p.prodDiscount}} % Off
+                            </span></button>
+                          </div> -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+  <mat-spinner *ngIf="!lastPage" diameter="50" strokeWidth="5"></mat-spinner>
+</div>
+
+<!-- prodPhoto -->

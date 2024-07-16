@@ -1,0 +1,118 @@
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+  crossorigin="anonymous"
+/>
+<button mat-mini-fab mat-dialog-close class="close">
+  <mat-icon>close</mat-icon>
+</button>
+<h2 mat-dialog-title class="text-center">Add Product</h2>
+<mat-dialog-content>
+  <form class="example-form" (ngSubmit)="addProduct(product.category.catId)">
+    <!-- Product Title -->
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Product Title</mat-label>
+      <input
+        required
+        [(ngModel)]="product.prodTitle"
+        name="product-title"
+        matInput
+        placeholder="Enter Product Title"
+      />
+    </mat-form-field>
+
+    <!-- Product Description -->
+    <p>
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Product Description</mat-label>
+        <textarea
+          rows="3"
+          required
+          [(ngModel)]="product.prodDesc"
+          name="product-desc"
+          matInput
+          placeholder="Enter Product Description"
+        ></textarea>
+      </mat-form-field>
+    </p>
+
+    <!-- Select Category -->
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Select Category</mat-label>
+      <mat-select name="category" [(ngModel)]="product.category.catId">
+        <mat-option *ngFor="let c of categories" [value]="c.catId">
+          {{ c.catTitle }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Product Price & Discount -->
+    <p>
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Product Price</mat-label>
+        <input
+          matInput
+          required
+          [(ngModel)]="product.prodPrice"
+          name="product-price"
+          matInput
+          placeholder="Enter Product Price"
+        />
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Product Discount</mat-label>
+        <input
+          matInput
+          required
+          [(ngModel)]="product.prodDiscount"
+          name="product-discount"
+          matInput
+          placeholder="Enter Product discount"
+        />
+      </mat-form-field>
+    </p>
+
+    <!-- Product Quentity & isActive -->
+    <p>
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>Product Quentity</mat-label>
+        <input
+          matInput
+          required
+          [(ngModel)]="product.prodQuantity"
+          name="product-quentity"
+          matInput
+          placeholder="Enter Product Quentity"
+        />
+      </mat-form-field>
+    </p>
+
+    <!-- File Upload -->
+    <div class="mb-3">
+      <label for="formFile" class="form-label"
+        >Default file input example</label
+      >
+      <input class="form-control" type="file" id="formFile" />
+    </div>
+
+    <!-- Active Product -->
+    <td>
+      <mat-slide-toggle
+        name="prodActive"
+        [(ngModel)]="product.prodActive"
+        class="ml20"
+      >
+        Slide For Active the Product
+      </mat-slide-toggle>
+    </td>
+
+    <!-- Add Button -->
+    <div class="container text-center mt20">
+      <button mat-stroked-button class="success mr10">ADD</button>
+      <button mat-stroked-button type="reset" color="accent">Clear</button>
+    </div>
+  </form>
+</mat-dialog-content>

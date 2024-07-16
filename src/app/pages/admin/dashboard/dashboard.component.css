@@ -1,0 +1,15 @@
+.admin .card{
+    border: 1px solid #F4F6F7;
+}
+
+.admin .card:hover{
+    background: #E8F6F3;
+    cursor: pointer;
+}
+
+.success{
+    color: #00FF00;
+}
+.add{
+    color: #0066FF;
+}

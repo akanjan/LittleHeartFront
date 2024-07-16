@@ -1,0 +1,54 @@
+<mat-toolbar class="navbar_color">
+  <a
+    routerLink="/"
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+  >
+    <mat-icon>diversity_1</mat-icon>
+  </a>
+  <span>LittleHeart</span>
+  <span class="example-spacer"></span>
+
+  <button mat-icon-button (click)="openDialog()" class="mr30">
+    <mat-icon matBadge="{{cartValue}}" matBadgeSize="small" [matBadgeHidden]="cartValue==0">shopping_cart</mat-icon>
+  </button>
+
+  <a
+    *ngIf="!isLoggedIn"
+    routerLink="/login"
+    mat-icon-button
+    class="example-icon favorite-icon mr20"
+    aria-label="Example icon-button with heart icon"
+  >
+    LOGIN
+  </a>
+  <a
+    *ngIf="!isLoggedIn"
+    routerLink="/signup"
+    mat-icon-button
+    class="example-icon mr20"
+    aria-label="Example icon-button with share icon"
+  >
+    SIGNUP
+  </a>
+
+  <button
+    *ngIf="isLoggedIn && User"
+    mat-button
+    class="example-icon favorite-icon mr20"
+    aria-label="Example icon-button with share icon"
+  >
+    {{ login.getUser().name }}
+  </button>
+
+  <a
+    (click)="logout()"
+    *ngIf="isLoggedIn"
+    mat-icon-button
+    class="example-icon mr20"
+    aria-label="Example icon-button with share icon"
+  >
+    LOGOUT
+  </a>
+</mat-toolbar>

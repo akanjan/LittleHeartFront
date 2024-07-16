@@ -1,0 +1,81 @@
+<div class="bootstrap-wrapper">
+  <div class="container">
+    <div class="row" style="margin-top: 20px">
+      <div class="col-md-6 offset-md-3">
+        <mat-card class="bg-app mat-elevation-z0">
+          <mat-card-title class="text-center">Update Category</mat-card-title>
+
+          <form (ngSubmit)="sendId()">
+            <table>
+              <tr>
+                <td>
+                  <mat-form-field
+                    class="input"
+                    appearance="outline"
+                    style="font-size: 11px"
+                  >
+                    <mat-label>Enter Category Id</mat-label>
+                    <input
+                      matInput
+                      placeholder="Enter Category Id"
+                      [(ngModel)]="catId"
+                      name="category-id"
+                    />
+                  </mat-form-field>
+                </td>
+                <td>
+                  <button
+                    mat-stroked-button
+                    class="success ml30"
+                    style="margin-top: 5px"
+                  >
+                    Get
+                  </button>
+                </td>
+              </tr>
+            </table>
+          </form>
+
+          <form class="example-form" *ngIf="action" (ngSubmit)="updateCategory()">
+            <mat-form-field
+              class="example-full-width mt30"
+              appearance="outline"
+            >
+              <mat-label>Category Title</mat-label>
+              <input
+                [(ngModel)]="category.catTitle"
+                name="category-title"
+                matInput
+                placeholder="Enter Categort Title"
+              />
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Category Description</mat-label>
+              <textarea
+                [(ngModel)]="category.catDesc"
+                name="category-desc"
+                class="desc"
+                matInput
+                placeholder="Category Description"
+              ></textarea>
+            </mat-form-field>
+
+            <mat-card-actions class="text-center">
+              <button mat-stroked-button class="warning" type="submit">
+                UPDATE
+              </button>
+              <button mat-stroked-button color="warn" class="" type="reset">
+                CLEAR
+              </button>
+            </mat-card-actions>
+          </form>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <button mat-stroked-button class="success ml30" >
+    ADD
+  </button> -->
